@@ -1,11 +1,24 @@
-import { JetBrains_Mono as FontMono, Inter as FontSans } from "next/font/google"
+import { createGlobalStyle } from 'styled-components';
 
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-VariableFont_wght.ttf') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
 
-export const fontMono = FontMono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  :root {
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+`;
+
+export default GlobalStyle;
